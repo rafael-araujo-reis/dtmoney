@@ -13,7 +13,7 @@ export const Container = styled.div`
     }
 
     div{
-        padding: 1rem 2rem;
+        padding: 1.25rem 2rem;
 
         background-color: var(--shape);
         color: var(--text-title);
@@ -21,6 +21,8 @@ export const Container = styled.div`
         border-radius: 0.5rem;
 
         strong{
+            display: inline-block;
+            margin-top: 1rem;
             font-size: 2rem;
             font-weight: 500;
         }
