@@ -5,6 +5,8 @@ export const Container = styled.div`
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 
+    transform: translateY(-50%);
+
     header{
         display: flex;
         justify-content: space-between;
