@@ -25,10 +25,10 @@ export const Container = styled.div`
                     color: var(--text-title);
                     font-weight: 500;
                 }
-                &.entrada{
+                &.deposit{
                     color: var(--green);
                 }
-                &.saida{
+                &.withdraw{
                     color: var(--red);
                 }
             }
