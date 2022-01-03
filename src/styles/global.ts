@@ -3,13 +3,15 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
 
     :root{
-    --background: #F0F2F5;    
-    --shape: #FFFFFF;    
+    --background: #F0F2F5;
+    --shape: #FFFFFF;
+    --border: #D7D7D7;    
 
     --green: #33CC95;
     --red: #E62E4D;    
     --blue: #5429CC;    
     --white: #FFFFFF;
+    --gray: #E7E9EE;    
 
     --blue-light: #6933FF;    
 
@@ -95,7 +97,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: transparent;
         border: none;
 
-        transactions: filter 0.3s;
+        transition: filter 0.3s;
 
         &:hover{
             filter: brightness(0.8);
