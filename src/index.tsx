@@ -7,15 +7,28 @@ createServer({
   routes() {
     this.namespace = 'api';
 
-    this.get('/transactions', () => {
-      return [
+  models: {
+    transactions: Model,
+  },
+
+  seeds(server) {
+    server.db.loadData({
+      transactions: [
         {
           id: 1,
-          title: 'Empréstimo bancário',
-          amount: 100000,
-          type: 'Empréstimo',
-          category: 'deposit',
-          date: new Date(),
+          title: 'Salário',
+          amount: 9127,
+          type: 'deposit',
+          category: 'Crédito',
+          createAt: new Date()
+        },
+        {
+          id: 2,
+          title: 'Desconto folha',
+          amount: 2800,
+          type: 'withdraw',
+          category: 'Desconto',
+          createAt: new Date()
         }
       ]
     });
