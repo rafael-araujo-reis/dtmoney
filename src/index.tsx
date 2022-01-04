@@ -15,7 +15,7 @@ createServer({
         {
           id: 1,
           title: 'Salário',
-          amount: 9127,
+          amount: 9127.55,
           type: 'deposit',
           category: 'Crédito',
           createAt: new Date()
