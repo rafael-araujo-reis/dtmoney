@@ -1,10 +1,12 @@
 import { FormEvent, useState } from 'react'
 import Modal from 'react-modal'
-import closeImg from '../../assets/close.svg'
-import entradaImg from '../../assets/entrada.svg'
-import saidaImg from '../../assets/saida.svg'
+
 import { api } from '../../services/api'
 import { Container, RadioBox, TransactionTypeContainer } from './styles'
+
+import closeImg from '../../assets/close.svg'
+import incomeImg from '../../assets/income.svg'
+import expenseImg from '../../assets/expense.svg'
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -63,7 +65,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                         isActive={type === 'deposit'}
                         activeColor={'green'}
                     >
-                        <img src={entradaImg} alt="Entrada" />
+                        <img src={incomeImg} alt="Entrada" />
                         <span>Entrada</span>
                     </RadioBox>
                     <RadioBox
@@ -72,7 +74,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                         isActive={type === 'withdraw'}
                         activeColor={'red'}
                     >
-                        <img src={saidaImg} alt="Saída" />
+                        <img src={expenseImg} alt="Saída" />
                         <span>Saída</span>
                     </RadioBox>
                 </TransactionTypeContainer>
