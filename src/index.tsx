@@ -13,20 +13,20 @@ createServer({
     server.db.loadData({
       transactions: [
         {
-          id: 1,
           title: 'Salário',
-          amount: 9127.55,
+          amount: 9000,
           type: 'deposit',
           category: 'Crédito',
-          createAt: new Date()
+          createAt: new Date(),
+          id: 1,
         },
         {
-          id: 2,
           title: 'Desconto folha',
-          amount: 2800,
+          amount: 3000,
           type: 'withdraw',
           category: 'Desconto',
-          createAt: new Date()
+          createAt: new Date(),
+          id: 2,
         }
       ]
     })
