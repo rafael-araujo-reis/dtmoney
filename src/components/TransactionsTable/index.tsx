@@ -4,7 +4,6 @@ import { Container } from "./styles";
 
 export function TransactionsTable() {
     const { transactions } = useTransactions();
-    console.log('transacoes table: ', transactions)
 
     return (
         <Container>
@@ -17,7 +16,7 @@ export function TransactionsTable() {
                         <th>Data</th>
                     </tr>
                 </thead>
-                {/* <tbody>
+                <tbody>
                     {transactions.map(transaction =>
                     (
                         <tr key={transaction.id}>
@@ -36,7 +35,7 @@ export function TransactionsTable() {
                         </tr>
                     )
                     )}
-                </tbody> */}
+                </tbody>
             </table>
         </Container>
     );

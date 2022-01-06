@@ -8,18 +8,16 @@ import totalImg from '../../assets/total.svg'
 
 export function Summary() {
     const { transactions } = useTransactions()
-    console.log('sumary: ', transactions)
 
-    const sumary = transactions.reduce((acumulator, transaction) => {
-        console.log('achar erro: ', transaction)
-        // if (transaction.type === 'deposit') {
-        //     acumulator.income += transaction.amount;
-        //     acumulator.total += transaction.amount;
-        // } else {
-        //     acumulator.expense += transaction.amount;
-        //     acumulator.total -= transaction.amount;
-        // }
-        return acumulator;
+    const summary = transactions.reduce((accumulator, transaction) => {
+        if (transaction.type === 'deposit') {
+            accumulator.income += transaction.amount;
+            accumulator.total += transaction.amount;
+        } else {
+            accumulator.expense += transaction.amount;
+            accumulator.total -= transaction.amount;
+        }
+        return accumulator;
     }, {
         income: 0,
         expense: 0,
@@ -33,36 +31,36 @@ export function Summary() {
                     <p>Entradas</p>
                     <img src={incomeImg} alt="entrada" />
                 </header>
-                {/* <strong>{
+                <strong>{
                     new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(sumary.income)}
-                </strong> */}
+                    }).format(summary.income)}
+                </strong>
             </div>
             <div>
                 <header>
                     <p>Saídas</p>
                     <img src={expenseImg} alt="saída" />
                 </header>
-                {/* <strong>-{
+                <strong>-{
                     new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(sumary.expense)}
-                </strong> */}
+                    }).format(summary.expense)}
+                </strong>
             </div>
             <div className="total">
                 <header>
                     <p>Total</p>
                     <img src={totalImg} alt="total" />
                 </header>
-                {/* <strong>{
+                <strong>{
                     new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(sumary.total)}
-                </strong> */}
+                    }).format(summary.total)}
+                </strong>
             </div>
         </Container>
     );

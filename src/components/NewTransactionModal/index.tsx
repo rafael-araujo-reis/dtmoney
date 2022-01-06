@@ -27,10 +27,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
 
         await createTransaction({
             title, amount, type, category
-        })
-        console.log('item criado: ', `
-            title ${title}, amount ${amount}, type ${type}, category ${category}
-        `)
+        });
         setTitle('')
         setAmount(0)
         setType('deposit')
@@ -52,7 +49,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                 >
                     <img src={closeImg} alt="Fechar modal" />
                 </button>
-                <h2>Cadastrar transação</h2>
+                <h2>Cadastrar nova transação</h2>
                 <input
                     type="text"
                     placeholder='Título'
@@ -94,7 +91,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
                     onChange={event => setCategory(event.target.value)}
                 />
                 <button type="submit">
-                    Cadastrar
+                    Cadastrar transação
                 </button>
             </Container>
         </Modal>
