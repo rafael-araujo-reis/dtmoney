@@ -14,7 +14,7 @@ createServer({
       transactions: [
         {
           title: 'Salário',
-          amount: 9000,
+          amount: 9127.55,
           type: 'deposit',
           category: 'Crédito',
           createAt: new Date(),
@@ -22,7 +22,7 @@ createServer({
         },
         {
           title: 'Desconto folha',
-          amount: 3000,
+          amount: 1610.15,
           type: 'withdraw',
           category: 'Desconto',
           createAt: new Date(),
