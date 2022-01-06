@@ -15,7 +15,7 @@ interface NewTransactionModalProps {
 
 Modal.setAppElement('#root')
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
-    const { createTransaction } = useContext(useTransaction);
+    const { createTransaction } = useTransactions();
 
     const [title, setTitle] = useState('')
     const [amount, setAmount] = useState(0)
@@ -28,6 +28,9 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         await createTransaction({
             title, amount, type, category
         })
+        console.log('item criado: ', `
+            title ${title}, amount ${amount}, type ${type}, category ${category}
+        `)
         setTitle('')
         setAmount(0)
         setType('deposit')

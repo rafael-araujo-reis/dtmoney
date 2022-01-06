@@ -17,7 +17,7 @@ export function TransactionsTable() {
                         <th>Data</th>
                     </tr>
                 </thead>
-                <tbody>
+                {/* <tbody>
                     {transactions.map(transaction =>
                     (
                         <tr key={transaction.id}>
@@ -36,7 +36,7 @@ export function TransactionsTable() {
                         </tr>
                     )
                     )}
-                </tbody>
+                </tbody> */}
             </table>
         </Container>
     );

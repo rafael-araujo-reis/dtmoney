@@ -16,7 +16,7 @@ interface Transaction {
 
 interface TransactionContextData {
     transactions: Transaction[],
-    createTransaction: (transaction: TransactionInput) => Promise<void>;
+    createTransaction: (transaction: TransactionInput) => Promise<void>; //Função async retorna promise
 }
 
 type TransactionInput = Omit<Transaction, 'id' | 'createAt'>
@@ -34,7 +34,12 @@ type ApiResponseType = {
     }
 }
 
-export const useTransaction = createContext<TransactionContextData>({} as TransactionContextData)
+const TransactionContext = createContext<TransactionContextData>({} as TransactionContextData)
+
+export function useTransactions() {
+    const context = useContext(TransactionContext);
+    return context;
+}
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -44,19 +49,19 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
             .then(response => setTransactions(response.data.transactions))
     }, []);
 
+    // Criar transação
     async function createTransaction(transactionInput: TransactionInput) {
         const response = await api.post('/transactions', {
             ...transactionInput,
             createAt: new Date(),
         })
         const { transaction } = response.data;
-        //setTransactions({ ...transactions, transaction })
-        setTransactions({ ...transactions })
+        setTransactions([...transactions, transaction])
     }
 
     return (
-        <useTransaction.Provider value={{ transactions, createTransaction }}>
+        <TransactionContext.Provider value={{ transactions, createTransaction }}>
             {children}
-        </useTransaction.Provider>
+        </TransactionContext.Provider>
     )
 }
