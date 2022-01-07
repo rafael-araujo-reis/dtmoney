@@ -1,4 +1,4 @@
-import { useTransactions } from "../../hooks/useTransaction";
+import { useTransaction } from "../../hooks/useTransaction";
 
 import { Container } from "./styles";
 
@@ -7,7 +7,7 @@ import expenseImg from '../../assets/expense.svg'
 import totalImg from '../../assets/total.svg'
 
 export function Summary() {
-    const { transactions } = useTransactions()
+    const { transactions } = useTransaction()
 
     const summary = transactions.reduce((accumulator, transaction) => {
         if (transaction.type === 'deposit') {

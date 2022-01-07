@@ -23,7 +23,7 @@ type TransactionInput = Omit<Transaction, 'id' | 'createAt'>
 
 const TransactionContext = createContext<TransactionContextData>({} as TransactionContextData)
 
-export function useTransactions() {
+export function useTransaction() {
     const context = useContext(TransactionContext);
     return context;
 }
